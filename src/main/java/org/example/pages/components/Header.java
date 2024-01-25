@@ -21,8 +21,7 @@ public class Header extends BasePage {
     @FindBy(xpath = "//app-header-dropdown-menu//li[normalize-space()='Вийти']")
     private WebElement logoutOption;
 
-    @FindBy(xpath = "//app-header-dropdown-menu")
-    private WebElement dropdownMenu;
+
 
     public Header(WebDriver driver) {
         super(driver);
@@ -40,8 +39,7 @@ public class Header extends BasePage {
     public void waitForVisibility(WebElement element) {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            wait.until(ExpectedConditions.and(ExpectedConditions.visibilityOf(element),
-                    ExpectedConditions.elementToBeClickable(element)));
+            wait.until(ExpectedConditions.visibilityOf(element));
             System.out.println("Element is visible and clickable: " + element);
         } catch (TimeoutException e) {
             System.out.println("Timeout waiting for visibility of element" + element + "'");
@@ -49,13 +47,8 @@ public class Header extends BasePage {
         }
     }
 
-   public void waitForLogoutButton() {
-        waitForVisibility(dropdownMenu);
-        waitForVisibility(logoutOption);
-    }
 
     public void clickLogoutLink() {
-        clickAccountButton();
         waitForVisibility(logoutOption);
         logoutOption.click();
     }

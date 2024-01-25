@@ -11,11 +11,6 @@ public class LogoutTests extends LoginAuthTest {
     public void logoutTest() {
         login("yzvntqpioqaumwvqey@cazlp.com", "44250414");
 
-        Header header = new Header(webDriver);
-        header.clickAccountButton();
-        header.waitForLogoutButton();
-        header.clickLogoutLink();
-
         LogoutPage logoutPage = new LogoutPage(webDriver);
         logoutPage.logout();
 
