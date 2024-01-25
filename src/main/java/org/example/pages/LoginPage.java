@@ -21,6 +21,7 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
+
     public void login(String username, String password) {
         usernameInput.sendKeys(username);
         passwordInput.sendKeys(password);

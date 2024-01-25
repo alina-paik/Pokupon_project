@@ -6,4 +6,14 @@
             <class name="LoginTests"/>
         </classes>
     </test>
+    <test name="LogoutTests">
+        <classes>
+            <class name="LogoutTests"/>
+        </classes>
+    </test>
+    <test name="MenuTests">
+        <classes>
+            <class name="MenuTests"/>
+        </classes>
+    </test>
 </suite>
