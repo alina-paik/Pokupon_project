@@ -16,4 +16,9 @@
             <class name="MenuTests"/>
         </classes>
     </test>
+    <test name="SearchTests">
+        <classes>
+            <class name="SearchTests"/>
+        </classes>
+    </test>
 </suite>
