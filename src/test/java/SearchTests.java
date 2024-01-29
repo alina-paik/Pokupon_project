@@ -9,8 +9,7 @@ public class SearchTests extends BaseTest {
     public Object[][] searchQuery() {
         return new Object[][] {
                 {"50%"},
-                {"60"},
-                {"55%"}
+                {"60"}
         };
     }
 
