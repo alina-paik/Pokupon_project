@@ -30,6 +30,12 @@ public class FilteringPage extends BasePage {
     @FindBy(xpath = "//a[@href='/uk/deals/kiev/skydky-na-den-rozhdenyia']")
     private WebElement birthdayPromotion;
 
+    @FindBy(xpath = "//input[@id='minPrice']")
+    private WebElement minPrice;
+
+    @FindBy(xpath = "//input[@id='maxPrice']")
+    private WebElement maxPrice;
+
     public FilteringPage(WebDriver driver) {
         super(driver);
     }
@@ -64,5 +70,13 @@ public class FilteringPage extends BasePage {
 
     public WebElement getBirthdayPromotion() {
         return birthdayPromotion;
+    }
+
+    public WebElement getMinPrice() {
+        return minPrice;
+    }
+
+    public WebElement getMaxPrice() {
+        return maxPrice;
     }
 }

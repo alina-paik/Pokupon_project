@@ -1,9 +1,12 @@
-import com.beust.ah.A;
+
 import jdk.jfr.Description;
 import org.example.pages.FilteringPage;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.time.Duration;
 
 public class FilteringTests extends BaseTest {
 
@@ -36,6 +39,29 @@ public class FilteringTests extends BaseTest {
 
         filteringPage.getBirthdayPromotion().click();
         Assert.assertEquals(webDriver.getCurrentUrl(), "https://pokupon.ua/uk/deals/kiev/skydky-na-den-rozhdenyia", "URL doesn`t match for category 'Знижка до дня народження'");
+
+    }
+
+    @Test
+    @Description("Check that filtering by price works")
+    public void checkFilterByPrice() {
+        webDriver.get("https://pokupon.ua/uk/deals/kiev/eda_i_restorany");
+        FilteringPage filteringPage = new FilteringPage(webDriver);
+
+        filteringPage.getMinPrice().clear();
+        filteringPage.getMaxPrice().clear();
+
+        filteringPage.getMinPrice().sendKeys("20");
+        filteringPage.getMaxPrice().sendKeys("40");
+
+        filteringPage.getMaxPrice().submit();
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(20));
+        String expectedUrl = "https://pokupon.ua/uk/deals/kiev/eda_i_restorany?minPrice=20&maxPrice=40";
+        wait.until(ExpectedConditions.urlToBe(expectedUrl));
+
+
+        Assert.assertTrue(webDriver.getCurrentUrl().contains(expectedUrl), "URL doesn`t contain the expected price parameters");
+
 
     }
 }
