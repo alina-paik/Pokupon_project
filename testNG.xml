@@ -26,4 +26,9 @@
             <class name="FilteringTests"/>
         </classes>
     </test>
+    <test name="FavoriteSectionTest">
+        <classes>
+            <class name="FavoriteSectionTests"/>
+        </classes>
+    </test>
 </suite>

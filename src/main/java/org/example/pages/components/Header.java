@@ -18,8 +18,8 @@ public class Header extends BasePage {
     @FindBy(xpath = "//div[@class='login authorized ng-star-inserted']")
     private WebElement accountButton;
 
-    @FindBy(xpath = "//app-header-dropdown-menu//li[normalize-space()='Вийти']")
-    private WebElement logoutOption;
+    @FindBy(xpath = "//a[@class='favorite']")
+    private WebElement favoriteButton;
 
 
 
@@ -47,9 +47,7 @@ public class Header extends BasePage {
         }
     }
 
-
-    public void clickLogoutLink() {
-        waitForVisibility(logoutOption);
-        logoutOption.click();
+    public void clickFavoriteButton() {
+        favoriteButton.click();
     }
 }

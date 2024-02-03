@@ -1,8 +1,13 @@
 package org.example.pages;
 
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 
 public class FilteringPage extends BasePage {
@@ -35,6 +40,12 @@ public class FilteringPage extends BasePage {
 
     @FindBy(xpath = "//input[@id='maxPrice']")
     private WebElement maxPrice;
+
+    @FindBy(xpath = "//div[@class='ng-select-container ng-has-value']")
+    private WebElement dropDownStation;
+
+    @FindBy(xpath = "//div[@id='a7b0a0531116-1']")
+    private WebElement osokorkyStation;
 
     public FilteringPage(WebDriver driver) {
         super(driver);
@@ -78,5 +89,24 @@ public class FilteringPage extends BasePage {
 
     public WebElement getMaxPrice() {
         return maxPrice;
+    }
+
+    public void clickDropDownStation() {
+        dropDownStation.click();
+    }
+
+
+    public void waitForVisibility(WebElement element) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOf(element));
+        } catch (TimeoutException e) {
+            throw e;
+        }
+    }
+
+    public void clickStation() {
+        waitForVisibility(osokorkyStation);
+        osokorkyStation.click();
     }
 }
