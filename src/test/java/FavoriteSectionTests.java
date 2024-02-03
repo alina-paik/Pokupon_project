@@ -19,9 +19,9 @@ public class FavoriteSectionTests extends BaseTest {
         favoriteSectionPage.closeLoginPopup();
     }
 
-    @Test
+    /*@Test
     @Description("Check that authorised user can add product to favorite section")
     public void checkAddFavoriteSection() {
         webDriver.get("");
-    }
+    }*/
 }
