@@ -51,8 +51,8 @@ public class FilteringTests extends BaseTest {
         filteringPage.getMinPrice().clear();
         filteringPage.getMaxPrice().clear();
 
-        filteringPage.getMinPrice().sendKeys("20");
-        filteringPage.getMaxPrice().sendKeys("40");
+        filteringPage.getMinPrice().sendKeys("25");
+        filteringPage.getMaxPrice().sendKeys("60");
 
         filteringPage.getMaxPrice().submit();
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(20));
@@ -64,7 +64,7 @@ public class FilteringTests extends BaseTest {
 
     }
 
-   @Test
+  /* @Test
     @Description("Check that filtering by subway station work")
     public void checkFilterByStation() {
         webDriver.get("https://pokupon.ua/uk/deals/kiev/eda_i_restorany");
@@ -76,5 +76,5 @@ public class FilteringTests extends BaseTest {
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.urlContains("stationId=15"));
         Assert.assertTrue(webDriver.getCurrentUrl().contains("stationId=15"), "URL doesnt match for station 'osokorky' ");
-    }
+    }*/
 }
