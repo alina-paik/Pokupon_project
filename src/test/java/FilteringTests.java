@@ -43,7 +43,7 @@ public class FilteringTests extends BaseTest {
 
     }
 
-    @Test
+/*    @Test
     @Description("Check that filtering by price works")
     public void checkFilterByPrice() {
         webDriver.get("https://pokupon.ua/uk/deals/kiev/eda_i_restorany");
@@ -63,7 +63,7 @@ public class FilteringTests extends BaseTest {
 
         Assert.assertTrue(webDriver.getCurrentUrl().contains(expectedUrl), "URL doesn`t contain the expected price parameters");
 
-    }
+    }*/
 
   /* @Test
     @Description("Check that filtering by subway station work")

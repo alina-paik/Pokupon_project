@@ -16,7 +16,6 @@ public abstract class LoginAuthTest extends BaseTest {
     }
 
     protected void login(String username, String password) {
-      /*  webDriver.get("https://pokupon.ua/");*/
 
         Header header = new Header(webDriver);
         header.clickLoginLink();
