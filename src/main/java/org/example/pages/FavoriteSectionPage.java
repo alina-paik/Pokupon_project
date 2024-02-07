@@ -46,7 +46,7 @@ public class FavoriteSectionPage extends BasePage {
     }
 
     public void removeFromFavorite() {
-       addToFavoriteButton.click();
+       inFavorite.click();
     }
 
     public WebElement getAddToFavoriteButton() {
