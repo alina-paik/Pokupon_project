@@ -26,10 +26,13 @@ public class FavoriteSectionTests extends LoginAuthTest {
     @Test
     @Description("Check that authorised user can add product to favorite section")
     public void checkAddFavoriteSection() {
+/*
         login("yzvntqpioqaumwvqey@cazlp.com", "44250414");
+*/
 
         webDriver.get("https://pokupon.ua/uk/deals/item/753562-vid-2-nochey-zi-snidankami-ta-bezlimitnim-spa-v-gotelnomu-kompleksi-karpati-v-migovo");
 
+        login("yzvntqpioqaumwvqey@cazlp.com", "44250414");
         FavoriteSectionPage favoriteSectionPage = new FavoriteSectionPage(webDriver);
         favoriteSectionPage.clickAddToFavorite();
 
@@ -41,9 +44,10 @@ public class FavoriteSectionTests extends LoginAuthTest {
     @Test
     @Description("Check that user can remove product from favorite section")
     public void checkRemoveFromFavoriteSection() {
-        login("yzvntqpioqaumwvqey@cazlp.com", "44250414");
+        /*login("yzvntqpioqaumwvqey@cazlp.com", "44250414");*/
         webDriver.get("https://pokupon.ua/uk/deals/item/753562-vid-2-nochey-zi-snidankami-ta-bezlimitnim-spa-v-gotelnomu-kompleksi-karpati-v-migovo");
 
+        login("yzvntqpioqaumwvqey@cazlp.com", "44250414");
         FavoriteSectionPage favoriteSectionPage = new FavoriteSectionPage(webDriver);
         Assert.assertTrue(favoriteSectionPage.isProductInFavorites(), "Product is not in favorites");
 

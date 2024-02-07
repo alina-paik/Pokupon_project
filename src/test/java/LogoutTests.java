@@ -9,6 +9,7 @@ public class LogoutTests extends LoginAuthTest {
     @Test
     @Description("Check that user can successfully logout")
     public void logoutTest() {
+        webDriver.get("https://pokupon.ua/");
         login("yzvntqpioqaumwvqey@cazlp.com", "44250414");
 
         LogoutPage logoutPage = new LogoutPage(webDriver);
