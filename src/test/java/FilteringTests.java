@@ -11,7 +11,7 @@ import java.time.Duration;
 
 public class FilteringTests extends BaseTest {
 
-    @Test
+    @Test(priority = 1)
     @Description("Check that filtering by category works")
     public void checkFilterByCategory() {
         webDriver.get("https://pokupon.ua/uk/deals/kiev/eda_i_restorany");

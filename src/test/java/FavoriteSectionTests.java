@@ -10,7 +10,7 @@ import java.time.Duration;
 
 public class FavoriteSectionTests extends LoginAuthTest {
 
-    @Test
+    @Test(priority = 1)
     @Description("Check that when an unauthorised user click the section, a login window appears")
     public void checkPopupLogin() {
         webDriver.get("https://pokupon.ua/");
@@ -23,7 +23,7 @@ public class FavoriteSectionTests extends LoginAuthTest {
         favoriteSectionPage.closeLoginPopup();
     }
 
-    @Test
+    @Test(priority = 2)
     @Description("Check that authorised user can add product to favorite section")
     public void checkAddFavoriteSection() {
 
@@ -38,7 +38,7 @@ public class FavoriteSectionTests extends LoginAuthTest {
         Assert.assertTrue(favoriteSectionPage.isProductInFavorites(), "Product is not added to favorites");
     }
 
-    @Test
+    @Test(priority = 3)
     @Description("Check that user can remove product from favorite section")
     public void checkRemoveFromFavoriteSection() {
         webDriver.get("https://pokupon.ua/uk/deals/item/753562-vid-2-nochey-zi-snidankami-ta-bezlimitnim-spa-v-gotelnomu-kompleksi-karpati-v-migovo");

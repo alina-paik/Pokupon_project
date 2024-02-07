@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class LoginTests extends LoginAuthTest {
 
-    @Test
+    @Test(priority = 1)
     @Description("Check that login is worked with valid credentials")
     public void loginWithValidCredentials()  {
         webDriver.get("https://pokupon.ua/");
@@ -15,7 +15,7 @@ public class LoginTests extends LoginAuthTest {
         Assert.assertTrue(isUserLoggedIn(), "User isn't logged in successfully");
     }
 
-    @Test
+    @Test(priority = 2)
     @Description("Check that login with invalid credentials displayed error message")
     public void loginWithInvalidCredentials() {
         webDriver.get("https://pokupon.ua/");

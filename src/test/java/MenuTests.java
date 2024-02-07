@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class MenuTests extends BaseTest {
 
-    @Test
+    @Test(priority = 1)
     @Description("Check that promotion menu change color to blue on mouseover")
     public void testPromotionMenuColorChange() {
         webDriver.get("https://pokupon.ua/");
@@ -20,7 +20,7 @@ public class MenuTests extends BaseTest {
         Assert.assertEquals(actualColor, expectedColor, "Color is not expected");
     }
 
-    @Test
+    @Test(priority = 2)
     @Description("Check that other menu elements change color to white on mouseover")
     public void testOtherElementColorChange() {
         webDriver.get("https://pokupon.ua/");
