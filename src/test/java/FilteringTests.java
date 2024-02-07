@@ -1,6 +1,7 @@
 
 import jdk.jfr.Description;
 import org.example.pages.FilteringPage;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -51,12 +52,12 @@ public class FilteringTests extends BaseTest {
         filteringPage.getMinPrice().clear();
         filteringPage.getMaxPrice().clear();
 
-        filteringPage.getMinPrice().sendKeys("25");
-        filteringPage.getMaxPrice().sendKeys("60");
+        filteringPage.getMinPrice().sendKeys("30");
+        filteringPage.getMaxPrice().sendKeys("250");
 
-        filteringPage.getMaxPrice().submit();
+        filteringPage.getMaxPrice().sendKeys(Keys.ENTER);
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(20));
-        String expectedUrl = "https://pokupon.ua/uk/deals/kiev/eda_i_restorany?minPrice=20&maxPrice=40";
+        String expectedUrl = "https://pokupon.ua/uk/deals/kiev/eda_i_restorany?minPrice=30&maxPrice=250";
         wait.until(ExpectedConditions.urlToBe(expectedUrl));
 
 
