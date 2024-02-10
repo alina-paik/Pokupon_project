@@ -64,18 +64,4 @@ public class FilteringTests extends BaseTest {
         Assert.assertTrue(webDriver.getCurrentUrl().contains(expectedUrl), "URL doesn`t contain the expected price parameters");
 
     }*/
-
-  /* @Test
-    @Description("Check that filtering by subway station work")
-    public void checkFilterByStation() {
-        webDriver.get("https://pokupon.ua/uk/deals/kiev/eda_i_restorany");
-        FilteringPage filteringPage = new FilteringPage(webDriver);
-
-        filteringPage.clickDropDownStation();
-        filteringPage.clickStation();
-
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.urlContains("stationId=15"));
-        Assert.assertTrue(webDriver.getCurrentUrl().contains("stationId=15"), "URL doesnt match for station 'osokorky' ");
-    }*/
 }
