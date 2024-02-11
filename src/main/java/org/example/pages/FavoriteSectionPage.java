@@ -1,6 +1,6 @@
 package org.example.pages;
 
-import org.openqa.selenium.By;
+import org.example.pages.components.Header;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,9 +25,24 @@ public class FavoriteSectionPage extends BasePage {
     @FindBy(xpath = "//a[@class='add-favorites-btn']//span[text()='В обраному']")
     private WebElement inFavorite;
 
+    private final LoginPage loginPage;
+
+    private final Header header;
+
    public FavoriteSectionPage(WebDriver driver) {
        super(driver);
+       loginPage = new LoginPage(driver);
+       header = new Header(driver);
    }
+
+   public void clickFavoriteButton() {
+     header.getFavoriteButton().click();
+   }
+
+   public void loginBeforeTest() {
+       loginPage.login("yzvntqpioqaumwvqey@cazlp.com", "44250414");
+   }
+
 
    public boolean isProductInFavorites() {
            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));

@@ -27,8 +27,12 @@ public class Header extends BasePage {
         super(driver);
     }
 
-    public void clickLoginLink() {
-        loginLink.click();
+    public WebElement getAccountButton() {
+        return accountButton;
+    }
+
+    public WebElement getLoginLink() {
+        return loginLink;
     }
 
     public void clickAccountButton() {
@@ -47,7 +51,7 @@ public class Header extends BasePage {
         }
     }
 
-    public void clickFavoriteButton() {
-        favoriteButton.click();
+    public WebElement getFavoriteButton() {
+        return favoriteButton;
     }
 }

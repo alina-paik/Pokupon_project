@@ -1,24 +1,26 @@
 import jdk.jfr.Description;
 import org.example.pages.FavoriteSectionPage;
-import org.example.pages.components.Header;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class FavoriteSectionTests extends LoginAuthTest {
+public class FavoriteSectionTests extends BaseTest {
+    private FavoriteSectionPage favoriteSectionPage;
+    @BeforeClass
+    public void setUpBeforeTest() {
+        favoriteSectionPage = new FavoriteSectionPage(webDriver);
+    }
 
     @Test(priority = 1)
     @Description("Check that when an unauthorised user click the section, a login window appears")
     public void checkPopupLogin() {
         webDriver.get("https://pokupon.ua/");
 
-        Header header = new Header(webDriver);
-        header.clickFavoriteButton();
-
-        FavoriteSectionPage favoriteSectionPage = new FavoriteSectionPage(webDriver);
+        favoriteSectionPage.clickFavoriteButton();
         Assert.assertTrue(favoriteSectionPage.isLoginPopupDisplayed(), "Login popup not displayed");
         favoriteSectionPage.closeLoginPopup();
     }
@@ -26,11 +28,9 @@ public class FavoriteSectionTests extends LoginAuthTest {
     @Test(priority = 2)
     @Description("Check that authorised user can add product to favorite section")
     public void checkAddFavoriteSection() {
-
         webDriver.get("https://pokupon.ua/uk/deals/item/753562-vid-2-nochey-zi-snidankami-ta-bezlimitnim-spa-v-gotelnomu-kompleksi-karpati-v-migovo");
 
-        login("yzvntqpioqaumwvqey@cazlp.com", "44250414");
-        FavoriteSectionPage favoriteSectionPage = new FavoriteSectionPage(webDriver);
+        favoriteSectionPage.loginBeforeTest();
         favoriteSectionPage.clickAddToFavorite();
 
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
@@ -43,8 +43,7 @@ public class FavoriteSectionTests extends LoginAuthTest {
     public void checkRemoveFromFavoriteSection() {
         webDriver.get("https://pokupon.ua/uk/deals/item/753562-vid-2-nochey-zi-snidankami-ta-bezlimitnim-spa-v-gotelnomu-kompleksi-karpati-v-migovo");
 
-        login("yzvntqpioqaumwvqey@cazlp.com", "44250414");
-        FavoriteSectionPage favoriteSectionPage = new FavoriteSectionPage(webDriver);
+        /*favoriteSectionPage.loginBeforeTest();*/
         Assert.assertTrue(favoriteSectionPage.isProductInFavorites(), "Product is not in favorites");
 
         favoriteSectionPage.removeFromFavorite();
